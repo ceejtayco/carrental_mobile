@@ -14,9 +14,13 @@
   "license": "Apache-2.0",
   "dependencies": {
     "cordova-android": "^8.1.0",
+    "cordova-plugin-badge": "^0.8.8",
+    "cordova-plugin-device": "^2.0.3",
     "cordova-plugin-dialogs": "^2.0.2",
     "cordova-plugin-geolocation": "^4.0.2",
     "cordova-plugin-inappbrowser": "^3.1.0",
+    "cordova-plugin-local-notification": "git+https://github.com/katzer/cordova-plugin-local-notifications.git",
+    "cordova-plugin-local-notifications": "^1.0.0",
     "cordova-plugin-network-information": "^2.0.2"
   },
   "devDependencies": {
@@ -28,7 +32,10 @@
       "cordova-plugin-dialogs": {},
       "cordova-plugin-network-information": {},
       "cordova-plugin-geolocation": {},
-      "cordova-plugin-inappbrowser": {}
+      "cordova-plugin-inappbrowser": {},
+      "cordova-plugin-local-notification": {
+        "ANDROID_SUPPORT_V4_VERSION": "26.+"
+      }
     },
     "platforms": [
       "android"
