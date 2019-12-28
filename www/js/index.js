@@ -16,10 +16,12 @@
  * specific language governing permissions and limitations
  * under the License.
  */
+
 var app = {
     // Application Constructor
     initialize: function() {
         document.addEventListener('deviceready', this.onDeviceReady.bind(this), false);
+
     },
 
     // deviceready Event Handler
@@ -51,6 +53,19 @@ function onDeviceReady() {
     } else {
     var ref = cordova.InAppBrowser.open('http://ezrent.online', '_blank', 'location=no,zoom=no,useWideViewPort=no');
       window.open= cordova.InAppBrowser.open;
+
+      notify();
     }
   }
-  document.addEventListener("deviceready", onDeviceReady, false);
+
+function notify() {
+
+    cordova.plugins.notification.local.schedule({
+        id: 1,
+        title: 'Test notification',
+        text: 'Thats pretty easy...',
+        foreground: true
+    });
+}
+
+document.addEventListener("deviceready", onDeviceReady, false);
