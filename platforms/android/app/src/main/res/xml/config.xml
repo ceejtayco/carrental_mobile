@@ -49,8 +49,5 @@
     <allow-intent href="mailto:*" />
     <allow-intent href="geo:*" />
     <allow-intent href="market:*" />
-    <cordova>
-        <access origin="http://www.ezrent.online*" />
-    </cordova>
     <preference name="loglevel" value="DEBUG" />
 </widget>

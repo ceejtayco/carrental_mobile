@@ -49,14 +49,15 @@ app.initialize();
 
 function onDeviceReady() {
     if (navigator.connection.type == Connection.NONE) {
-      navigator.notification.alert('An internet connection is required to continue');
+        navigator.notification.alert('An internet connection is required to continue');
     } else {
-    var ref = cordova.InAppBrowser.open('http://ezrent.online', '_blank', 'location=no,zoom=no,useWideViewPort=no');
-      window.open= cordova.InAppBrowser.open;
+        var ref = cordova.InAppBrowser.open('http://ezrent.online', '_blank', 'location=no,zoom=no,useWideViewPort=no');
+        ref.addEventListener('loadstop', function() {
+            notify();
+        });
 
-      notify();
     }
-  }
+}
 
 function notify() {
 
