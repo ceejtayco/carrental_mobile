@@ -7,13 +7,11 @@
     "files": {}
   },
   "installed_plugins": {
-    "cordova-plugin-whitelist": {
+    "cordova-plugin-advanced-http": {
+      "OKHTTP_VERSION": "3.10.0",
       "PACKAGE_NAME": "com.example.carrental"
     },
     "cordova-plugin-dialogs": {
-      "PACKAGE_NAME": "com.example.carrental"
-    },
-    "cordova-plugin-network-information": {
       "PACKAGE_NAME": "com.example.carrental"
     },
     "cordova-plugin-geolocation": {
@@ -22,22 +20,17 @@
     "cordova-plugin-inappbrowser": {
       "PACKAGE_NAME": "com.example.carrental"
     },
-    "cordova-plugin-local-notification": {
-      "ANDROID_SUPPORT_V4_VERSION": "26.+",
+    "cordova-plugin-network-information": {
       "PACKAGE_NAME": "com.example.carrental"
     },
-    "cordova-plugin-advanced-http": {
-      "OKHTTP_VERSION": "3.10.0",
+    "cordova-plugin-whitelist": {
+      "PACKAGE_NAME": "com.example.carrental"
+    },
+    "onesignal-cordova-plugin": {
       "PACKAGE_NAME": "com.example.carrental"
     }
   },
   "dependent_plugins": {
-    "cordova-plugin-device": {
-      "PACKAGE_NAME": "com.example.carrental"
-    },
-    "cordova-plugin-badge": {
-      "PACKAGE_NAME": "com.example.carrental"
-    },
     "cordova-plugin-file": {
       "PACKAGE_NAME": "com.example.carrental"
     }

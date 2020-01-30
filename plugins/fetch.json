@@ -10,7 +10,7 @@
   "cordova-plugin-dialogs": {
     "source": {
       "type": "registry",
-      "id": "cordova-plugin-dialogs"
+      "id": "cordova-plugin-dialogs@^2.0.2"
     },
     "is_top_level": true,
     "variables": {}
@@ -18,7 +18,7 @@
   "cordova-plugin-network-information": {
     "source": {
       "type": "registry",
-      "id": "cordova-plugin-network-information"
+      "id": "cordova-plugin-network-information@^2.0.2"
     },
     "is_top_level": true,
     "variables": {}
@@ -38,24 +38,6 @@
     },
     "is_top_level": true,
     "variables": {}
-  },
-  "de.appplant.cordova.plugin.local-notification": {
-    "source": {
-      "type": "registry",
-      "id": "cordova-plugin-local-notifications"
-    },
-    "is_top_level": true,
-    "variables": {}
-  },
-  "cordova-plugin-local-notification": {
-    "source": {
-      "type": "registry",
-      "id": "https://github.com/katzer/cordova-plugin-local-notifications"
-    },
-    "is_top_level": true,
-    "variables": {
-      "ANDROID_SUPPORT_V4_VERSION": "26.+"
-    }
   },
   "cordova-plugin-device": {
     "source": {
@@ -89,6 +71,14 @@
       "id": "cordova-plugin-file@>=2.0.0"
     },
     "is_top_level": false,
+    "variables": {}
+  },
+  "onesignal-cordova-plugin": {
+    "source": {
+      "type": "registry",
+      "id": "onesignal-cordova-plugin@2.8.1"
+    },
+    "is_top_level": true,
     "variables": {}
   }
 }

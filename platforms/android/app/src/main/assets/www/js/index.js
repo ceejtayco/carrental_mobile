@@ -34,6 +34,7 @@ var app = {
 
     // Update DOM on a Received Event
     receivedEvent: function(id) {
+
         var parentElement = document.getElementById(id);
         var listeningElement = parentElement.querySelector('.listening');
         var receivedElement = parentElement.querySelector('.received');
@@ -42,6 +43,7 @@ var app = {
         receivedElement.setAttribute('style', 'display:block;');
 
         console.log('Received Event: ' + id);
+
     }
 };
 
@@ -51,10 +53,68 @@ function onDeviceReady() {
     if (navigator.connection.type == Connection.NONE) {
         navigator.notification.alert('An internet connection is required to continue');
     } else {
-        var ref = cordova.InAppBrowser.open('http://ezrent.online', '_blank', 'location=no,zoom=no,useWideViewPort=no');
+
+        var ref = cordova.InAppBrowser.open('https://ezrent.online', '_blank', 'location=no,zoom=no,useWideViewPort=no');
+        navigator.geolocation.getCurrentPosition(geolocationSuccess,geolocationError,{ enableHighAccuracy: true });
+        //          ONE SIGNAL
+        //          window.plugins.OneSignal.setLogLevel({logLevel: 4, visualLevel: 4});
+        var notificationOpenedCallback = function(jsonData) {
+//        alert('notificationOpenedCallback: ' + JSON.stringify(jsonData));
+//        console.log('notificationOpenedCallback: ' + JSON.stringify(jsonData));
+            cordova.plugins.notification.local.schedule({
+                    id: 1,
+                    title: 'Carrental',
+                    text: JSON.stringify(jsonData),
+
+                    foreground: true
+            });
+        };
+
+
         ref.addEventListener('loadstop', function() {
-            notify();
+          var session_user_name = "";
+          var session_user_id = "";
+          var session_user_type = "";
+
+          window.plugins.OneSignal.startInit("c7203da0-332c-4ab4-bf61-9e3802b93cb8").handleNotificationReceived(notificationOpenedCallback).endInit();
+
+          ref.executeScript({
+            code: "document.getElementById('session_user_email').innerHTML"
+          }, function(html) {
+            session_user_name = html[0];
+
+
+            if(session_user_name != '') {
+                window.plugins.OneSignal.sendTag("user_name", session_user_name);
+
+
+            }
+          });
+
+          ref.executeScript({
+          code: "document.getElementById('session_user_id').innerHTML"
+          }, function(html) {
+             session_user_id = html[0];
+
+
+             if(session_user_id != '') {
+                window.plugins.OneSignal.sendTag("user_id", session_user_id);
+             }
+          });
+
+          ref.executeScript({
+             code: "document.getElementById('session_user_type').innerHTML"
+          }, function(html) {
+              session_user_type = html[0];
+
+
+              if(session_user_type != '') {
+                window.plugins.OneSignal.sendTag("user_type", session_user_type);
+              }
+          });
+
         });
+
 
     }
 }
@@ -67,6 +127,14 @@ function notify() {
         text: 'Thats pretty easy...',
         foreground: true
     });
+}
+
+function geolocationSuccess() {
+//    alert('Success Geolocation');
+}
+
+function geolocationError() {
+//    alert('error on geolocation');
 }
 
 document.addEventListener("deviceready", onDeviceReady, false);

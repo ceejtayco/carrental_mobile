@@ -98,8 +98,7 @@ ext {
 }
 
 // PLUGIN GRADLE EXTENSIONS START
-apply from: "../cordova-plugin-badge/carrental-badge.gradle"
-apply from: "../cordova-plugin-local-notification/carrental-localnotification.gradle"
+apply from: "../onesignal-cordova-plugin/carrental-build-extras-onesignal.gradle"
 // PLUGIN GRADLE EXTENSIONS END
 
 def hasBuildExtras1 = file('build-extras.gradle').exists()
@@ -295,8 +294,8 @@ dependencies {
     implementation fileTree(dir: 'libs', include: '*.jar')
     // SUB-PROJECT DEPENDENCIES START
     implementation(project(path: ":CordovaLib"))
-    implementation "com.android.support:support-v4:26.+"
     implementation "com.squareup.okhttp3:okhttp-urlconnection:3.10.0"
+    implementation "com.onesignal:OneSignal:3.12.4"
     // SUB-PROJECT DEPENDENCIES END
 }
 
